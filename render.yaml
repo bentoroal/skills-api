@@ -1,0 +1,10 @@
+#Archivo con configuraciones para subir el proyecto a render.com
+
+services:
+  - type: web
+    name: skills-api
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    autoDeploy: true
