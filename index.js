@@ -3,7 +3,11 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+//Se de permiso expreso para que pueda consultar la API desde Curriculum Web subido en git pages
+app.use(cors({
+  origin: 'https://bentoroal.github.io'
+}));
+
 
 const skills = [
   { categoria: 'Lenguajes', items: ['Python', 'Javascript', 'Typescript', 'Java', 'PHP', 'Kotlin'] },
