@@ -4,8 +4,13 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //Se de permiso expreso para que pueda consultar la API desde Curriculum Web subido en git pages
+const cors = require('cors');
+
 app.use(cors({
-  origin: 'https://bentoroal.github.io'
+  origin: ['https://bentoroal.github.io'],
+  methods: ['GET'],
+  allowedHeaders: ['Content-Type'],
+  optionsSuccessStatus: 200
 }));
 
 
