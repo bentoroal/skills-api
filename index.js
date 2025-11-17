@@ -1,16 +1,15 @@
-const express = require('express');
 const cors = require('cors');
+const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//Se de permiso expreso para que pueda consultar la API desde Curriculum Web subido en git pages
-
-app.use(cors({
-  origin: ['https://bentoroal.github.io'],
-  methods: ['GET'],
-  allowedHeaders: ['Content-Type'],
-  optionsSuccessStatus: 200
-}));
+// Middleware CORS robusto
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://bentoroal.github.io');
+  res.header('Access-Control-Allow-Methods', 'GET');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
 
 const skills = [
