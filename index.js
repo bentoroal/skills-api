@@ -1,15 +1,12 @@
-const cors = require('cors');
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware CORS robusto
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://bentoroal.github.io');
-  res.header('Access-Control-Allow-Methods', 'GET');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://bentoroal.github.io'
+}));
+
 
 
 const skills = [
